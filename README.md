@@ -56,7 +56,7 @@ for additional information as well.
  - [start](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~start__anchor)
  - [reset](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~reset__anchor)
  - [isBeating](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~isBeating__anchor)
- - [onTimeout](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~onTimeout__anchor)
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~onTimeout__anchor">onTimeout</a>
         
 ##  Examples
 
