@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Fl4m3Ph03n1x/tcp-ip_connMan.git"
+        "url": "git+https://github.com/Fl4m3Ph03n1x/heartbeastjs"
     },
     "keywords": [
         "heartbeat",
@@ -24,9 +24,9 @@
     "author": "Pedro Miguel Pereira Serrano Martins",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/Fl4m3Ph03n1x/tcp-ip_connMan/issues"
+        "url": "https://github.com/Fl4m3Ph03n1x/heartbeastjs/issues"
     },
-    "homepage": "https://github.com/Fl4m3Ph03n1x/tcp-ip_connMan#readme",
+    "homepage": "https://fl4m3ph03n1x.github.io/heartbeastjs/index.html",
     "devDependencies": {
         "chai": "^4.0.1",
         "ink-docstrap": "^1.3.0",
