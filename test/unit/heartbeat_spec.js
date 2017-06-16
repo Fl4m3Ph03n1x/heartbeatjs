@@ -57,7 +57,15 @@ describe("heartBeat", () => {
         heartBeat.setBeatTimeout(newTimeout);
         expect(heartBeat.getBeatTimeout()).to.eql(newTimeout);
     });
-
+    
+    it("should throw is 'setBeatTimeout' is invoked without a Number param", () => {
+        expect(heartBeat.setBeatTimeout.bind(null, "Hellow World")).to.throw(TypeError);
+    });
+    
+    it("should throw is 'setBeatInterval' is invoked without a Number param", () => {
+        expect(heartBeat.setBeatInterval.bind(null, "Hellow World")).to.throw(TypeError);
+    });
+    
     it("should not be beating before being started", () => {
         expect(heartBeat.isBeating()).to.be.false;
     });

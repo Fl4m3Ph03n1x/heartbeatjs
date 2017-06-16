@@ -38,7 +38,7 @@ module](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html).
 
 ## Install
 
-    `npm install heartbeatjs` --save
+    npm install heartbeatjs --save
 
 ##  Examples
 

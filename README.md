@@ -38,7 +38,7 @@ for additional information as well.
 
 ## Install
 
-    `npm install heartbeatjs` --save
+    npm install heartbeatjs --save
 
 ## API
 

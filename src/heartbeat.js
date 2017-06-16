@@ -59,6 +59,7 @@ const heartBeatFactory = () => {
      *  @public 
      *  @func   setBeatInterval
      *  @param  {Number}        newInterval The new heartbeat interval.  
+     *  @throws {TypeError}     If <code>newInterval</code> is not a Number.
      * 
      *  @description    Sets the current heartbeat interval to the given one. 
      *                  Note that setting the heartbeat interval will <b>not</b>
@@ -69,6 +70,9 @@ const heartBeatFactory = () => {
      * @see             <code>start</code>
      */
     const setBeatInterval = newInterval => {
+        if(isNaN(newInterval))
+            throw new TypeError(`${newInterval} must be a Number.`);
+            
         interval = newInterval;
     };
 
@@ -87,7 +91,8 @@ const heartBeatFactory = () => {
     /**
      *  @public 
      *  @func   setBeatTimeout
-     *  @param  {Number}        newTimeout  The new newTimeout.  
+     *  @param  {Number}        newTimeout  The new newTimeout. 
+     *  @throws {TypeError}     If <code>newTimeout</code> is not a Number.
      * 
      *  @description    Sets the current timeout to the given one. 
      *                  Setting the timeout this way will immediatly affect the
@@ -99,6 +104,9 @@ const heartBeatFactory = () => {
      *  @see            <code>onTimeout</code>
      */
     const setBeatTimeout = newTimeout => {
+        if(isNaN(newTimeout))
+            throw new TypeError(`${newTimeout} must be a Number.`);
+        
         timeout = newTimeout;
         clearTimeout(timeoutTimer);
         timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
@@ -183,6 +191,7 @@ const heartBeatFactory = () => {
      *  @func   start
      *  @param  {Function}  fn  The function that will be executed periodically
      *                          by the heartbeat object.  
+     *  @throws {TypeError}     If <code>fn</code> is not a function.
      * 
      *  @description    Starts the heartbeat object, executing the given 
      *                  function <code>fn</code> every interval. If you want to 
@@ -203,6 +212,7 @@ const heartBeatFactory = () => {
      *  @func   onTimeout
      *  @param  {Function}  fn  The function to be executed when a timeout 
      *                          occurs.  
+     *  @throws {TypeError}     If <code>fn</code> is not a function.
      * 
      *  @description    Runs the given function when the heartbeat detects a 
      *                  timeout. A timeout is deteceted if 
