@@ -181,7 +181,7 @@ const heartBeatFactory = () => {
     /**
      *  @public 
      *  @func   start
-     *  @param  {Object}    fn  The function that will be executed periodically
+     *  @param  {Function}  fn  The function that will be executed periodically
      *                          by the heartbeat object.  
      * 
      *  @description    Starts the heartbeat object, executing the given 
