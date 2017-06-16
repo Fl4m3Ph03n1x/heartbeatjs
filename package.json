@@ -1,0 +1,41 @@
+{
+    "name": "heartbeatjs",
+    "version": "1.0.0",
+    "description": "Runs ping functions periodically to determine if third parties are still alive.",
+    "main": "./src/heartbeat.js",
+    "directories": {
+        "docs": "docs",
+        "test": "test"
+    },
+    "scripts": {
+        "test": "NODE_ENV=test nyc mocha --reporter spec test/**/*_spec.js || true",
+        "doc": "./node_modules/.bin/jsdoc ./src/heartbeat.js -d ./docs -t ./node_modules/ink-docstrap/template -R ./docs/DOCS_README.md"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Fl4m3Ph03n1x/tcp-ip_connMan.git"
+    },
+    "keywords": [
+        "heartbeat",
+        "ping",
+        "pong",
+        "connection"
+    ],
+    "author": "Pedro Miguel Pereira Serrano Martins",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Fl4m3Ph03n1x/tcp-ip_connMan/issues"
+    },
+    "homepage": "https://github.com/Fl4m3Ph03n1x/tcp-ip_connMan#readme",
+    "devDependencies": {
+        "chai": "^4.0.1",
+        "ink-docstrap": "^1.3.0",
+        "jsdoc": "^3.4.3",
+        "mocha": "^3.4.2",
+        "nyc": "^11.0.1",
+        "sinon": "^2.3.2"
+    },
+    "dependencies": {
+        "lodash.isfunction": "^3.0.8"
+    }
+}
