@@ -42,20 +42,20 @@ for additional information as well.
 
 ## API
 
- - [getBeatInterval](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getBeatInterval__anchor)
- - [setBeatInterval](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setBeatInterval__anchor)
- - [getBeatTimeout](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getBeatTimeout__anchor)
- - [setBeatTimeout](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setBeatTimeout__anchor)
- - [hasTimedOut](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~hasTimedOut__anchor)
- - [getPing](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getPing__anchor)
- - [setPing](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setPing__anchor)
- - [getPong](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getPong__anchor)
- - [setPong](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setPong__anchor)
- - [receivedPong](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~receivedPong__anchor)
- - [stop](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~stop__anchor)
- - [start](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~start__anchor)
- - [reset](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~reset__anchor)
- - [isBeating](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~isBeating__anchor)
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getBeatInterval__anchor">getBeatInterval</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setBeatInterval__anchor">setBeatInterval</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getBeatTimeout__anchor">getBeatTimeout</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setBeatTimeout__anchor">setBeatTimeout</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~hasTimedOut__anchor">hasTimedOut</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getPing__anchor">getPing</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setPing__anchor">setPing</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~getPong__anchor">getPong</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~setPong__anchor">setPong</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~receivedPong__anchor">receivedPong</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~stop__anchor">stop</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~start__anchor">start</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~reset__anchor">reset</a>
+ - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~isBeating__anchor">isBeating</a>
  - <a href="https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html#~onTimeout__anchor">onTimeout</a>
         
 ##  Examples
