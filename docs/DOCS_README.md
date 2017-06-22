@@ -1,3 +1,5 @@
+[![Inline docs](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeastjs.svg?branch=master)](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeastjs)
+
 #   What 
     
 `heartbeatjs` is a small light weight library that helps you run periodic 
