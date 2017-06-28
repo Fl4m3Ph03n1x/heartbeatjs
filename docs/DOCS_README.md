@@ -28,22 +28,22 @@ To do this, there are two common scenarios:
 In cases where the first scenario doesn't happen or it is incomplete, you need
 to resort to polling to check on it.
 
-`heartbeatjs` was desgined for this purpose and its function is to help you poll
+`heartbeatjs` was designed for this purpose and its function is to help you poll
 targets.
 
 #   How
 
-Following are instructions on how to intsall and use `heartbeatjs`. For more
+Following are instructions on how to install and use `heartbeatjs`. For more
 information about the project you can check the GitHub page:
 
- - [heartbeastjs Github](https://github.com/Fl4m3Ph03n1x/heartbeastjs)
+ - [heartbeatjs Github](https://github.com/Fl4m3Ph03n1x/heartbeatjs)
 
 And for questions you can ask in the issues page:
 
- - [heartbeastjs Issues](https://github.com/Fl4m3Ph03n1x/heartbeastjs/issues)
+ - [heartbeatjs Issues](https://github.com/Fl4m3Ph03n1x/heartbeatjs/issues)
 
-For additional information on the API, feel free to check the heartbeastjs [API
-module](https://fl4m3ph03n1x.github.io/heartbeastjs/module-heartBeat.html).
+For additional information on the API, feel free to check the heartbeatjs [API
+module](https://fl4m3ph03n1x.github.io/heartbeatjs/module-heartBeat.html).
 
 ## Install
 

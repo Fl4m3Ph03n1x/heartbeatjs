@@ -1,6 +1,6 @@
 {
   "name": "heartbeatjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Runs ping functions periodically to determine if third parties are still alive.",
   "main": "./src/heartbeat.js",
   "directories": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fl4m3Ph03n1x/heartbeastjs"
+    "url": "git+https://github.com/Fl4m3Ph03n1x/heartbeatjs"
   },
   "keywords": [
     "heartbeat",
@@ -25,9 +25,9 @@
   "author": "Pedro Miguel Pereira Serrano Martins",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Fl4m3Ph03n1x/heartbeastjs/issues"
+    "url": "https://github.com/Fl4m3Ph03n1x/heartbeatjs/issues"
   },
-  "homepage": "https://fl4m3ph03n1x.github.io/heartbeastjs/index.html",
+  "homepage": "https://fl4m3ph03n1x.github.io/heartbeatjs/index.html",
   "devDependencies": {
     "chai": "^4.0.1",
     "codecov": "^2.2.0",
