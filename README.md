@@ -33,12 +33,8 @@ targets.
 
 #   How
 
-Following are instructions on how to intsall and use `heartbeatjs`. For more
-information about the project you can check the GitHub page:
-
- - [heartbeatjs Github](https://github.com/Fl4m3Ph03n1x/heartbeatjs)
-
-And for questions you can ask in the issues page:
+Following are instructions on how to intsall and use `heartbeatjs`. If you have
+any questions you can ask in the issues page:
 
  - [heartbeatjs Issues](https://github.com/Fl4m3Ph03n1x/heartbeatjs/issues)
 
