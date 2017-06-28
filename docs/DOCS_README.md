@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs)
 [![codecov](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs/branch/master/graph/badge.svg)](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs)
-[![Dependency Status](https://www.versioneye.com/user/projects/59538da0368b08006483b4ab/badge.svg)](https://www.versioneye.com/user/projects/59538da0368b08006483b4ab)
+[![Dependency Status](https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23/badge.svg)](https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23)
 [![Code Climate](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs/badges/gpa.svg)](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs)
 [![Inline docs](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
