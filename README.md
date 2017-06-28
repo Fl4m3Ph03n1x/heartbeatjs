@@ -1,8 +1,6 @@
 [![Build Status](https://travis-ci.org/Fl4m3Ph03n1x/heartbeastjs.svg?branch=master)](https://travis-ci.org/Fl4m3Ph03n1x/heartbeastjs)
 [![Dependency Status](https://www.versioneye.com/user/projects/59538da0368b08006483b4ab/badge.svg)](https://www.versioneye.com/user/projects/59538da0368b08006483b4ab)
-
 [![Code Climate](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeastjs/badges/gpa.svg)](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeastjs)
-
 [![Inline docs](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeastjs.svg?branch=master)](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeastjs)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
