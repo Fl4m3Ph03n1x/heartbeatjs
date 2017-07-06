@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./logos/logo_no_wm.png" width="25%">
+    <img src="./logos/logo_no_wm.png" width="20%">
 </p>
 
 [![NPM](https://nodei.co/npm/heartbeatjs.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/obj-watcher/)
