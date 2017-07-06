@@ -86,19 +86,22 @@
 
 
     <section class="readme-section">
-        <article><p><a href="https://nodei.co/npm/obj-watcher/"><img src="https://nodei.co/npm/heartbeatjs.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
-<p><a href="https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs"><img src="https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master" alt="Build Status"></a><br><a href="https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs"><img src="https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs/branch/master/graph/badge.svg" alt="codecov"></a><br><a href="https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23"><img src="https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23/badge.svg" alt="Dependency Status"></a><br><a href="https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs"><img src="https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs/badges/gpa.svg" alt="Code Climate"></a><br><a href="http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs"><img src="http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master" alt="Inline docs"></a><br><a href="https://github.com/dwyl/esta/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome"></a></p>
-<h1>What</h1><p><code>heartbeatjs</code> is a small light weight library that helps you run periodic<br>heartbeat functions and detects timeouts when they occur by launching events.</p>
-<p>It was mainly designed for tcp/ip connections, but you can use it with any<br>protocol you want as it designed to be generic.</p>
-<h1>Why</h1><p>When you are connected to a third party mahcine (aka target), most of the time<br>you need to know if the target is alive or not.</p>
+        <article><div align="center"><br>    <img src="https://raw.githubusercontent.com/Fl4m3Ph03n1x/heartbeatjs/master/logos/logo_no_wm.png" width="20%"><br></div>
+
+<div align="center"><br><a href="https://nodei.co/npm/obj-watcher/"><img src="https://nodei.co/npm/heartbeatjs.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a><br><br><a href="https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs"><img src="https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master" alt="Build Status"></a><a href="https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs"><img src="https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs/branch/master/graph/badge.svg" alt="codecov"></a><a href="https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23"><img src="https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23/badge.svg" alt="Dependency Status"></a><a href="https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs"><img src="https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs/badges/gpa.svg" alt="Code Climate"></a><a href="http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs"><img src="http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master" alt="Inline docs"></a><a href="https://github.com/dwyl/esta/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="contributions welcome"></a><br></div>
+
+
+<h1>What</h1><p><code>heartbeatjs</code> is a small light weight library that helps you run periodic heartbeat functions and detects timeouts when they occur by launching events.</p>
+<p>It was mainly designed for tcp/ip connections, but you can use it with any protocol you want as it designed to be generic.</p>
+<h1>Why</h1><p>When you are connected to a third party mahcine (aka target), most of the time you need to know if the target is alive or not.</p>
 <p>To do this, there are two common scenarios:</p>
 <ol>
 <li>the target notifies you when it is about to go down</li>
 <li>you poll the target to check its status</li>
 </ol>
-<p>In cases where the first scenario doesn't happen or it is incomplete, you need<br>to resort to polling to check on it.</p>
-<p><code>heartbeatjs</code> was designed for this purpose and its function is to help you poll<br>targets.</p>
-<h1>How</h1><p>Following are instructions on how to install and use <code>heartbeatjs</code>. For more<br>information about the project you can check the GitHub page:</p>
+<p>In cases where the first scenario doesn't happen or it is incomplete, you need to resort to polling to check on it.</p>
+<p><code>heartbeatjs</code> was designed for this purpose and its function is to help you poll targets.</p>
+<h1>How</h1><p>Following are instructions on how to install and use <code>heartbeatjs</code>. For more information about the project you can check the GitHub page:</p>
 <ul>
 <li><a href="https://github.com/Fl4m3Ph03n1x/heartbeatjs">heartbeatjs Github</a></li>
 </ul>
@@ -106,57 +109,56 @@
 <ul>
 <li><a href="https://github.com/Fl4m3Ph03n1x/heartbeatjs/issues">heartbeatjs Issues</a></li>
 </ul>
-<p>For additional information on the API, feel free to check the heartbeatjs <a href="https://fl4m3ph03n1x.github.io/heartbeatjs/module-heartBeat.html">API<br>module</a>.</p>
-<h2>Install</h2><pre class="prettyprint source"><code>npm install heartbeatjs --save</code></pre><h2>Examples</h2><p>Start a heartbeat that sends a message periodically to a target, with<br>DEFAULT.TIMEOUT 5s and DEFAULT.INTERVAL 3s:</p>
-<pre class="prettyprint source"><code>    const net = require('net');
-    const heartbeatFactory = require(&quot;heartbeatjs&quot;);
+<h2>Install</h2><pre class="prettyprint source"><code>npm install heartbeatjs --save</code></pre><h2>Examples</h2><p>Start a heartbeat that sends a message periodically to a target, with <code>DEFAULT.TIMEOUT</code> 5s and <code>DEFAULT.INTERVAL</code> 3s:</p>
+<pre class="prettyprint source"><code>const net = require('net');
+const heartbeatFactory = require(&quot;heartbeatjs&quot;);
 
-    const myHeartBeat = heartbeatFactory();
-    const client = net.createConnection({ port: 8124 }, () => {
+const myHeartBeat = heartbeatFactory();
+const client = net.createConnection({ port: 8124 }, () => {
 
-        //'connect' listener
-        console.log('connected to target!');
+    //'connect' listener
+    console.log('connected to target!');
 
-        myHeartBeat.start(() => {
-            client.write(&quot;Hello World!&quot;);    
-        });
-    });</code></pre><p>Now let's say that everytime we get a message, we consider it a pong:</p>
-<pre class="prettyprint source"><code>    client.on(&quot;data&quot;, data => {
-        myHeartBeat.receivedPong();
-        //timeout timer resetted!
-    });</code></pre><p>Heartbeat with custom Pings and Pongs:</p>
-<pre class="prettyprint source"><code>    const client = net.createConnection({ port: 8124 }, () => {
-
-        //'connect' listener
-        console.log('connected to target!');
-
-        myHeartBeat.setPing(&quot;Marco&quot;);
-        myHeartBeat.setPong(&quot;Polo&quot;);
-        myHeartBeat.start(() => {
-            //send ping every 3s
-            client.write(myHeartBeat.getPing());    
-        });
+    myHeartBeat.start(() => {
+        client.write(&quot;Hello World!&quot;);    
     });
+});</code></pre><p>Now let's say that every time we get a message, we consider it a pong:</p>
+<pre class="prettyprint source"><code>client.on(&quot;data&quot;, data => {
+    myHeartBeat.receivedPong();
+    //timeout timer resetted!
+});</code></pre><p>Heartbeat with custom Pings and Pongs:</p>
+<pre class="prettyprint source"><code>const client = net.createConnection({ port: 8124 }, () => {
 
-    client.on(&quot;data&quot;, data => {
-        if(data === myHeartBeat.getPong()){
-            myHeartBeat.receivedPong();
-            return;
-        }
+    //'connect' listener
+    console.log('connected to target!');
 
-        //process data                
-    });</code></pre><p>Listen to when target dies via timeout:</p>
-<pre class="prettyprint source"><code>    const client = net.createConnection({ port: 8124 }, () => {
+    myHeartBeat.setPing(&quot;Marco&quot;);
+    myHeartBeat.setPong(&quot;Polo&quot;);
+    myHeartBeat.start(() => {
+        //send ping every 3s
+        client.write(myHeartBeat.getPing());    
+    });
+});
 
-        //'connect' listener
-        console.log('connected to target!');
+client.on(&quot;data&quot;, data => {
+    if(data === myHeartBeat.getPong()){
+        myHeartBeat.receivedPong();
+        return;
+    }
 
-        myHeartBeat.onTimeout(() => console.log(&quot;Timed Out!&quot;));
-        myHeartBeat.start(() => {
-            //send ping every 3s
-            client.write(&quot;Hello World&quot;);    
-        });
-    });</code></pre></article>
+    //process data                
+});</code></pre><p>Listen to when target dies via timeout:</p>
+<pre class="prettyprint source"><code>const client = net.createConnection({ port: 8124 }, () => {
+
+    //'connect' listener
+    console.log('connected to target!');
+
+    myHeartBeat.onTimeout(() => console.log(&quot;Timed Out!&quot;));
+    myHeartBeat.start(() => {
+        //send ping every 3s
+        client.write(&quot;Hello World&quot;);    
+    });
+});</code></pre></article>
     </section>
 
 
