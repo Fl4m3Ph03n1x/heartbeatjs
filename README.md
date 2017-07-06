@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="./logos/logo_no_wm.png" >
+</p>
+
 [![NPM](https://nodei.co/npm/heartbeatjs.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/obj-watcher/)
 
 [![Build Status](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs)

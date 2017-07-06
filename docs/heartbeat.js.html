@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>DocStrap Source: heartbeat.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.sandstone.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">DocStrap</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-heartBeat.html">heartBeat</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+			
+
+		<h1 class="page-title">Source: heartbeat.js</h1>
+    
+<section>
+    <article>
+        <pre
+            class="sunlight-highlight-javascript linenums">"use strict";
+
+const isFunction = require("lodash.isfunction");
+
+
+/**
+ *  @public
+ *  @author Pedro Miguel P. S. Martins
+ *  @version 1.0.1
+ *  @module heartBeat
+ *  @desc   Runs a given function periodically and watches for timeouts.
+ */
+const heartBeatFactory = () => {
+
+    const DEFAULT = {
+        TIMEOUT: 5000,
+        INTERVAL: 3000
+    };
+
+    let interval = DEFAULT.INTERVAL,
+        timeout = DEFAULT.TIMEOUT,
+        ping,
+        pong,
+        timer,
+        lastHeartbeatTime,
+        timeoutTimer;
+    
+    const events = {
+        timeout: () => {}
+    };
+    
+    /**
+     *  @public 
+     *  @func       hasTimedOut
+     *  @returns    {Boolean}   &lt;code>true&lt;/code> if the heartbeat has timedout, 
+     *                          &lt;code>false&lt;/code> otherwise. 
+     * 
+     *  @description    Used to detected if a heartbeat has timedout. A 
+     *                  heartbeat times out when it sends a ping, and receives 
+     *                  no pong after a given period of time. The timeout period
+     *                  can be manipulated via &lt;code>setBeatTimeout&lt;/code>.
+     * @see             &lt;code>setBeatTimeout&lt;/code>
+     */
+    const hasTimedOut = () =>
+        Date.now() - lastHeartbeatTime > timeout;
+
+    /**
+     *  @public 
+     *  @func       getBeatInterval
+     *  @returns    {Number}        The current heartbeat interval.
+     * 
+     *  @description    Returns the current hearbeat interval. The heartbeat 
+     *                  interval is the interval at which the heartbeat will run
+     *                  the &lt;code>ping&lt;/code> function.
+     */
+    const getBeatInterval = () => interval;
+
+    /**
+     *  @public 
+     *  @func   setBeatInterval
+     *  @param  {Number}        newInterval The new heartbeat interval.  
+     *  @throws {TypeError}     If &lt;code>newInterval&lt;/code> is not a Number.
+     * 
+     *  @description    Sets the current heartbeat interval to the given one. 
+     *                  Note that setting the heartbeat interval will &lt;b>not&lt;/b>
+     *                  affetct current heartbeat running. You must 
+     *                  &lt;code>stop&lt;/code> them and then &lt;code>start&lt;/code> them
+     *                  for the new interval to be applied.
+     * @see             &lt;code>stop&lt;/code>
+     * @see             &lt;code>start&lt;/code>
+     */
+    const setBeatInterval = newInterval => {
+        if(isNaN(newInterval))
+            throw new TypeError(`${newInterval} must be a Number.`);
+            
+        interval = newInterval;
+    };
+
+    /**
+     *  @public 
+     *  @func       getBeatTimeout
+     *  @returns    {Number}        The current timeout.
+     * 
+     *  @description    Returns the current hearbeat timeout. The heartbeat 
+     *                  timeout is the amount of time that must pass for the 
+     *                  &lt;code>hasTimedOut&lt;/code> to return &lt;code>true&lt;/code>.
+     * @see             &lt;code>hasTimedOut&lt;/code>
+     */
+    const getBeatTimeout = () => timeout;
+
+    /**
+     *  @public 
+     *  @func   setBeatTimeout
+     *  @param  {Number}        newTimeout  The new newTimeout. 
+     *  @throws {TypeError}     If &lt;code>newTimeout&lt;/code> is not a Number.
+     * 
+     *  @description    Sets the current timeout to the given one. 
+     *                  Setting the timeout this way will immediatly affect the
+     *                  &lt;code>hasTimedOut&lt;/code> method without the need to 
+     *                  restart the heartbeat object. Invoking this method 
+     *                  &lt;b>does&lt;/b> restart the timer controlling the 
+     *                  &lt;code>onTimeout&lt;/code> event.
+     *  @see            &lt;code>hasTimedOut&lt;/code>
+     *  @see            &lt;code>onTimeout&lt;/code>
+     */
+    const setBeatTimeout = newTimeout => {
+        if(isNaN(newTimeout))
+            throw new TypeError(`${newTimeout} must be a Number.`);
+        
+        timeout = newTimeout;
+        clearTimeout(timeoutTimer);
+        timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
+    };
+
+    /**
+     *  @public 
+     *  @func       getPing
+     *  @returns    {Object}    The current object being used as a ping.
+     * 
+     *  @description    Returns the ping object being used. 
+     */
+    const getPing = () => ping;
+
+    /**
+     *  @public 
+     *  @func   setPing
+     *  @param  {Object}    newPing  The new ping object.  
+     * 
+     *  @description    Sets the current ping object. A ping object can 
+     *                  be anything that the receiver accepts, from a Buffer of
+     *                  bytes to plain Object to a primitive. 
+     */
+    const setPing = newPing => {
+        ping = newPing;
+    };
+
+    /**
+     *  @public 
+     *  @func       getPong
+     *  @returns    {Object}    The current object being used as a pong.
+     * 
+     *  @description    Returns the pong object being used. 
+     */
+    const getPong = () => pong;
+
+    /**
+     *  @public 
+     *  @func   setPong
+     *  @param  {Object}    newPong  The new pong object.  
+     * 
+     *  @description    Sets the pong object we expect to receive from the 
+     *                  target of the heartbeats. This is only needed if there 
+     *                  is a need to distinguish between normal messages from 
+     *                  the target of heartbeat and pong messages that need to 
+     *                  be processed differently.
+     */
+    const setPong = newPong => {
+        pong = newPong;
+    };
+
+    /**
+     *  @public 
+     *  @func       receivedPong
+     * 
+     *  @description    Notifies the hearbeat that it has received a pong from 
+     *                  the target. 
+     */
+    const receivedPong = () => {
+        lastHeartbeatTime = Date.now();
+        clearTimeout(timeoutTimer);
+        timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
+    };
+
+    /**
+     *  @public 
+     *  @func   stop
+     * 
+     *  @description    Stops the heartbeat object and clears all internal 
+     *                  states. 
+     */
+    const stop = () => {
+        lastHeartbeatTime = undefined;
+        clearInterval(timer);
+        timer = undefined;
+        clearTimeout(timeoutTimer);
+        timeoutTimer = undefined;
+    };
+
+    /**
+     *  @public 
+     *  @func   start
+     *  @param  {Function}  fn  The function that will be executed periodically
+     *                          by the heartbeat object.  
+     *  @throws {TypeError}     If &lt;code>fn&lt;/code> is not a function.
+     * 
+     *  @description    Starts the heartbeat object, executing the given 
+     *                  function &lt;code>fn&lt;/code> every interval. If you want to 
+     *                  send a ping to an object every interval, this is where 
+     *                  you defined that.
+     */
+    const start = fn => {
+        if (!isFunction(fn))
+            throw new TypeError(`${fn} must be a function.`);
+
+        lastHeartbeatTime = Date.now();
+        timer = setInterval(fn, getBeatInterval());
+        timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
+    };
+
+    /**
+     *  @public 
+     *  @func   onTimeout
+     *  @param  {Function}  fn  The function to be executed when a timeout 
+     *                          occurs.  
+     *  @throws {TypeError}     If &lt;code>fn&lt;/code> is not a function.
+     * 
+     *  @description    Runs the given function when the heartbeat detects a 
+     *                  timeout. A timeout is deteceted if 
+     *                  &lt;code>receivedPong&lt;/code> is not called within the 
+     *                  defined 'timeout' period.
+     */
+    const onTimeout = fn => {
+        if (!isFunction(fn))
+            throw new TypeError(`${fn} must be a function.`);
+            
+        events.timeout = fn;
+    };
+
+    /**
+     *  @public 
+     *  @func       isBeating
+     *  @returns    {Boolean}   &lt;code>true&lt;/code> if the heartbeat is active, 
+     *                          &lt;code>false&lt;/code> otherwise.
+     * 
+     *  @description    Returns &lt;code>true&lt;/code> if the heartbeat is active, 
+     *                  &lt;code>false&lt;/code> otherwise. A heartbeat is considered 
+     *                  active if it was started and has not beend stopped yet.
+     */
+    const isBeating = () => timer !== undefined;
+
+    /**
+     *  @public 
+     *  @func   reset
+     * 
+     *  @description    Stops the heartbeat if it is beating, and resets all 
+     *                  properties to the original default values.
+     */
+    const reset = () => {
+        if (isBeating())
+            stop();
+
+        setBeatInterval(DEFAULT.INTERVAL);
+        setBeatTimeout(DEFAULT.TIMEOUT);
+        ping = undefined;
+        pong = undefined;
+        onTimeout(() => {});
+    };
+
+    return Object.freeze({
+        getBeatInterval,
+        setBeatInterval,
+        getBeatTimeout,
+        setBeatTimeout,
+        hasTimedOut,
+        getPing,
+        setPing,
+        getPong,
+        receivedPong,
+        setPong,
+        stop,
+        start,
+        reset,
+        isBeating,
+        onTimeout
+    });
+};
+
+module.exports = heartBeatFactory;
+</pre>
+    </article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+	<span class="copyright">
+	DocStrap Copyright © 2012-2015 The contributors to the JSDoc3 and DocStrap projects.
+	</span>
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on Thu Jul 6th 2017
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
