@@ -1,6 +1,6 @@
 {
   "name": "heartbeatjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Runs ping functions periodically to determine if third parties are still alive.",
   "main": "./src/heartbeat.js",
   "directories": {
@@ -31,11 +31,12 @@
   "devDependencies": {
     "chai": "^4.0.1",
     "codecov": "^2.2.0",
+    "eslint": "^4.5.0",
     "ink-docstrap": "^1.3.0",
     "jsdoc": "^3.4.3",
     "mocha": "^3.4.2",
     "nyc": "^11.0.1",
-    "sinon": "^2.3.2"
+    "sinon": "^3.2.1"
   },
   "dependencies": {
     "lodash.isfunction": "^3.0.8"

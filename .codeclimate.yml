@@ -1,7 +1,5 @@
 ---
 engines:
-  csslint:
-    enabled: false
   duplication:
     enabled: true
     config:
@@ -9,6 +7,7 @@ engines:
       - javascript
   eslint:
     enabled: true
+    channel: "eslint-4"
   fixme:
     enabled: true
 ratings:
@@ -19,4 +18,5 @@ exclude_paths:
 - "docs/"
 - "node_modules/"
 - "test/"
+- "logos/"
 - "coverage.lcov"
