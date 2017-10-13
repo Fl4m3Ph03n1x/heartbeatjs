@@ -5,7 +5,13 @@
 <div align="center">
 [![NPM](https://nodei.co/npm/heartbeatjs.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/heartbeatjs/)
 
-[![Build Status](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs)[![codecov](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs/branch/master/graph/badge.svg)](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs)[![Dependency Status](https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23/badge.svg)](https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23)[![Code Climate](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs/badges/gpa.svg)](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs)[![Inline docs](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs)[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+[![Build Status](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs)
+[![codecov](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs/branch/master/graph/badge.svg)](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs)
+[![Dependency Status](https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23/badge.svg)](https://www.versioneye.com/user/projects/5953ac7d6725bd004becfd23)
+[![Code Climate](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs/badges/gpa.svg)](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs)
+[![Known Vulnerabilities](https://snyk.io/test/github/fl4m3ph03n1x/heartbeatjs/badge.svg)](https://snyk.io/test/github/fl4m3ph03n1x/heartbeatjs)
+[![Inline docs](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Fl4m3Ph03n1x/heartbeatjs/issues)
 </div>
 
 
