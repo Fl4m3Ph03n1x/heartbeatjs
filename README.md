@@ -1,5 +1,7 @@
 <div align="center">
-    <img src="./logos/logo_no_wm.png" width="15%">
+    <a href="https://fl4m3ph03n1x.github.io/heartbeatjs/index.html">
+        <img src="./logos/logo_no_wm.png" width="15%">
+    </a>
 </div>
 
 <div align="center">

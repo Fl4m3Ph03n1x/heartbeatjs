@@ -1,5 +1,7 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/Fl4m3Ph03n1x/heartbeatjs/master/logos/logo_no_wm.png" width="20%">
+    <a href="https://github.com/Fl4m3Ph03n1x/heartbeatjs">
+        <img src="https://raw.githubusercontent.com/Fl4m3Ph03n1x/heartbeatjs/master/logos/logo_no_wm.png" width="20%">
+    </a>
 </div>
 
 <div align="center">
@@ -13,7 +15,6 @@
 [![Inline docs](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Fl4m3Ph03n1x/heartbeatjs/issues)
 </div>
-
 
 #   What
 

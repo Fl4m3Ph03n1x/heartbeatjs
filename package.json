@@ -1,6 +1,6 @@
 {
   "name": "heartbeatjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Runs ping functions periodically to determine if third parties are still alive.",
   "main": "./src/heartbeat.js",
   "directories": {
