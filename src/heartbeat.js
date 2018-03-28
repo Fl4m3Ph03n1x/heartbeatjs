@@ -1,29 +1,41 @@
-"use strict";
-
 const isFunction = require("lodash.isfunction");
 
+/**
+ * @constant
+ * @default
+ * @description     Default timeout of all heartbeat objects.
+ * @see             <code>setBeatTimeout</code>
+ * @see             <code>getBeatTimeout</code>
+ */
+const DEFAULT_TIMEOUT = 5000;
+
+/**
+ * @constant
+ * @default
+ * @description     Default heartbeat interval of all heartbeat objects.
+ * @see             <code>setBeatInterval</code>
+ * @see             <code>getBeatInterval</code>
+ */
+const DEFAULT_INTERVAL = 3000;
 
 /**
  *  @public
- *  @author Pedro Miguel P. S. Martins
- *  @version 1.0.2
+ *  @author Pedro Miguel Pereira Serrano Martins
+ *  @version 1.0.3
  *  @module heartBeat
- *  @desc   Runs a given function periodically and watches for timeouts.
+ *  @desc   Factory function that creates heartbeat objects with a default Timeout of <code>DEFAULT_TIMEOUT</code> seconds and a default BeatInterval of <code>DEFAULT_INTERVAL</code> seconds. 
+ *          The heartbeat returned is stopped and needs to be started to execute.
  */
 const heartBeatFactory = () => {
 
-    const DEFAULT = {
-        TIMEOUT: 5000,
-        INTERVAL: 3000
-    };
-
-    let interval = DEFAULT.INTERVAL,
-        timeout = DEFAULT.TIMEOUT,
+    let interval = DEFAULT_INTERVAL,
+        timeout = DEFAULT_TIMEOUT,
         ping,
         pong,
         timer,
         lastHeartbeatTime,
-        timeoutTimer;
+        timeoutTimer,
+        hasStarted = false;
 
     const events = {
         timeout: () => {}
@@ -185,6 +197,7 @@ const heartBeatFactory = () => {
         if (!isFunction(fn))
             throw new TypeError(`${fn} must be a function.`);
 
+        hasStarted = true;
         lastHeartbeatTime = Date.now();
         timer = setInterval(fn, getBeatInterval());
         timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
@@ -228,11 +241,13 @@ const heartBeatFactory = () => {
         if (isBeating())
             stop();
 
-        setBeatInterval(DEFAULT.INTERVAL);
-        setBeatTimeout(DEFAULT.TIMEOUT);
-        ping = undefined;
-        pong = undefined;
-        onTimeout(() => {});
+        if( hasStarted ){
+            setBeatInterval(DEFAULT_INTERVAL);
+            setBeatTimeout(DEFAULT_TIMEOUT);
+            ping = undefined;
+            pong = undefined;
+            onTimeout(() => {});
+        }
     };
 
     return Object.freeze({
