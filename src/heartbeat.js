@@ -35,11 +35,7 @@ const heartBeatFactory = () => {
         timer,
         lastHeartbeatTime,
         timeoutTimer,
-        hasStarted = false;
-
-    const events = {
-        timeout: () => {}
-    };
+        timeoutFn = () => { };
 
     /**
      *  @public
@@ -112,7 +108,7 @@ const heartBeatFactory = () => {
 
         timeout = newTimeout;
         clearTimeout(timeoutTimer);
-        timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
+        timeoutTimer = setTimeout( timeoutFn, timeout );
     };
 
     /**
@@ -166,7 +162,7 @@ const heartBeatFactory = () => {
     const receivedPong = () => {
         lastHeartbeatTime = Date.now();
         clearTimeout(timeoutTimer);
-        timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
+        timeoutTimer = setTimeout( timeoutFn, timeout );
     };
 
     /**
@@ -197,10 +193,9 @@ const heartBeatFactory = () => {
         if (!isFunction(fn))
             throw new TypeError(`${fn} must be a function.`);
 
-        hasStarted = true;
         lastHeartbeatTime = Date.now();
-        timer = setInterval(fn, getBeatInterval());
-        timeoutTimer = setTimeout(events.timeout, getBeatTimeout());
+        timer = setInterval( fn, interval );
+        timeoutTimer = setTimeout( timeoutFn, timeout );
     };
 
     /**
@@ -217,7 +212,7 @@ const heartBeatFactory = () => {
         if (!isFunction(fn))
             throw new TypeError(`${fn} must be a function.`);
 
-        events.timeout = fn;
+        timeoutFn = fn;
     };
 
     /**
@@ -238,16 +233,13 @@ const heartBeatFactory = () => {
      *  @description    Stops the heartbeat if it is beating, and resets all properties to the original default values.
      */
     const reset = () => {
-        if (isBeating())
-            stop();
+        stop();
 
-        if( hasStarted ){
-            setBeatInterval(DEFAULT_INTERVAL);
-            setBeatTimeout(DEFAULT_TIMEOUT);
-            ping = undefined;
-            pong = undefined;
-            onTimeout(() => {});
-        }
+        interval = DEFAULT_INTERVAL;
+        timeout = DEFAULT_TIMEOUT;
+        ping = undefined;
+        pong = undefined;
+        timeoutFn = () => { };
     };
 
     return Object.freeze({

@@ -110,14 +110,18 @@ describe("heartBeat", () => {
 
     it("should stop calling 'pingFn' when it stops", () => {
         const spy = sinon.spy(),
-            interval = 25;
+            interval = 25,
+            wait = 10000;
+
         heartBeat.setBeatInterval( interval );
         heartBeat.start( spy );
 
-        //one interval and half
-        clock.tick( interval + interval / 2 );
+        clock.tick( interval );
 
         heartBeat.stop();
+
+        clock.tick( wait );
+
         expect( spy.calledOnce ).to.be.true;
     });
 
@@ -130,12 +134,15 @@ describe("heartBeat", () => {
     });
 
     it("should not be beating after being stoppedd", () => {
-        const interval = 10;
+        const interval = 1000,
+            wait = 10000;
         heartBeat.setBeatInterval( interval );
 
         heartBeat.start( () => {} );
         clock.tick( interval );
         heartBeat.stop();
+
+        clock.tick( wait );
 
         expect( heartBeat.isBeating() ).to.be.false;
     });
@@ -152,14 +159,15 @@ describe("heartBeat", () => {
     });
 
     it("should not time timeout if it recieves pongs", () => {
-        const interval = 10,
-            timeout = 20;
+        const interval = 1000,
+            timeout = 2000,
+            wait = 10000;
         heartBeat.setBeatTimeout( timeout );
         heartBeat.setBeatInterval( interval );
 
         heartBeat.start( heartBeat.receivedPong );
 
-        clock.tick( 50 );
+        clock.tick( wait );
         expect( heartBeat.hasTimedOut() ).to.be.false;
     });
 
@@ -188,12 +196,13 @@ describe("heartBeat", () => {
     });
 
     it("should not invoke 'onTimeout' if a timeout does not occur", () => {
+        const wait = 10000;
         const newHeartbeat = heartBeatFactory();
         const timeoutSpy = sinon.spy();
         newHeartbeat.onTimeout( timeoutSpy );
         newHeartbeat.reset();
 
-        clock.tick( 6000 );
+        clock.tick( wait );
 
         expect( timeoutSpy.called ).to.be.false;
     });
