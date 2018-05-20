@@ -10,7 +10,7 @@
 
 [![Build Status](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](https://travis-ci.org/Fl4m3Ph03n1x/heartbeatjs)
 [![codecov](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs/branch/master/graph/badge.svg)](https://codecov.io/gh/Fl4m3Ph03n1x/heartbeatjs)
-[![Dependency Status](https://david-dm.org/Fl4m3Ph03n1x/heartbeatjs.svg)](https://david-dm.org)
+[![Dependency Status](https://david-dm.org/Fl4m3Ph03n1x/heartbeatjs.svg)](https://david-dm.org/Fl4m3Ph03n1x/heartbeatjs)
 [![Code Climate](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs/badges/gpa.svg)](https://codeclimate.com/github/Fl4m3Ph03n1x/heartbeatjs)
 [![Known Vulnerabilities](https://snyk.io/test/github/fl4m3ph03n1x/heartbeatjs/badge.svg)](https://snyk.io/test/github/fl4m3ph03n1x/heartbeatjs)
 [![Inline docs](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs.svg?branch=master)](http://inch-ci.org/github/Fl4m3Ph03n1x/heartbeatjs)
